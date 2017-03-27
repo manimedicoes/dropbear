@@ -12,47 +12,11 @@ sleep 3
 #
 echo "$(tput bold) Atualizando pacotes do VPS, pode demorar ...$(tput sgr0)"
 #
-apt-get -y update 1>/dev/null 2>/dev/null
-apt-get -y upgrade 1>/dev/null 2>/dev/null
-yum -y update 1>/dev/null 2>/dev/null
-yum -y upgrade 1>/dev/null 2>/dev/null
-#
-echo "$(tput bold) Instalando DropBear 5.0, aguarde ...$(tput sgr0)"
-#
-apt-get -y install dropbear 1>/dev/null 2>/dev/null
-yum -y install dropbear 1>/dev/null 2>/dev/null
-#
-echo "$(tput bold) Liberando a navegação na porta 80 (Dropbear) ...$(tput sgr0)"
-#
-sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear 1>/dev/null 2>/dev/null
-sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=80/g' /etc/default/dropbear 1>/dev/null 2>/dev/null
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 110"/g' /etc/default/dropbear 1>/dev/null 2>/dev/null
-#
-echo "$(tput bold) Removendo pacotes Proxy Squid para ñ haver conflitos ...$(tput sgr0)"
-#
-apt-get remove squid3 -y 1>/dev/null 2>/dev/null
-apt-get rm -r squid3 -y 1>/dev/null 2>/dev/null
-apt-get remove squid -y 1>/dev/null 2>/dev/null
-apt-get rm -r squid -y 1>/dev/null 2>/dev/null
-apt-get autoremove -y 1>/dev/null 2>/dev/null
-yum remove squid3 -y 1>/dev/null 2>/dev/null
-yum rm -r squid3 -y 1>/dev/null 2>/dev/null
-yum remove squid -y 1>/dev/null 2>/dev/null
-yum rm -r squid -y 1>/dev/null 2>/dev/null
-yum autoremove -y 1>/dev/null 2>/dev/null
-#
+apt-g
 echo "$(tput bold) FIX Usuários sem acesso ao shell...$(tput sgr0)"
 sleep 3
 echo "/bin/false" >> /etc/shells 1>/dev/null 2>/dev/null
-/etc/init.d/dropbear dropbear start
-service dropbear start
-/etc/init.d/dropbear restart
-service dropbear restart
-echo "$(tput bold) SERVIDOR DROPBEAR CONFIGURADO COM SUCESSO $(tput sgr0)"
-echo "$(tput bold) Canal Telegram @NetGratisMobileE $(tput sgr0)"
-echo "$(tput bold) ● Crie um usuário com: useradd -m -s /bin/false usuario $(tput sgr0)"
-echo "$(tput bold) ● Crie a senha do usuario com: passwd usuario $(tput sgr0)"
-echo "$(tput bold) ● Como >configurar todos os aplicativos< $(tput sgr0)"
+/e
 echo "$(tput bold) >IP SSH= ip_vps; >PORTA SSH= 80; User e Senha= Criados por vc $(tput sgr0)"
 echo "$(tput bold) >PayLoad= Cada operadora tem uma; >Proxy= Deixa em Branco $(tput sgr0)"
 echo "$(tput bold) >PayLoad= Cada operadora tem uma; >Proxy= Deixa em Branco $(tput sgr0)"
